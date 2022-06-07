@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+<title>Users : Update</title>
+</head>
+<body>
+    <h1 layout:fragment="header">User : Update</h1>
+    <div layout:fragment="content" class="container">
+        <form id="userForm" th:action="@{/user/(formUpdate)}" th:object="${user}" action="#" method="post">
+            <div class="pull-right">
+                <a th:href="@{/user/}" href="users.html"> Users </a>
+            </div>
+            <input type="hidden" th:field="*{id}" />
+
+            <dt>Email</dt>
+            <dd id="email" th:text="${user.email}">Email</dd>
+
+            <input type="hidden" th:field="*{email}" />
+            <input type="hidden" th:field="*{password}"/>
+            <input class="form-control" type="hidden" th:value="${user.password}" id="passwordConfirmation" name="passwordConfirmation" />
+
+
+            <label for="firstName">First name</label>
+            <input type="text" th:field="*{firstName}" th:class="${#fields.hasErrors('firstName')} ? 'field-error'"/>
+
+            <label for="lastName">Last name</label>
+            <input type="text" th:field="*{lastName}" th:class="${#fields.hasErrors('lastName')} ? 'field-error'"/>
+
+            <label for="phoneNumber">Phone number</label>
+            <input type="text" th:field="*{phoneNumber}" th:class="${#fields.hasErrors('phoneNumber')} ? 'field-error'"/>
+
+
+
+            <div class="form-actions">
+                <input type="submit" value="update" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

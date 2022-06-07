@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Users : Search</title>
+</head>
+<body>
+<h1 layout:fragment="header">User : Found</h1>
+<div layout:fragment="content" class="container">
+    <div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">Some Success message</div>
+    <div class="pull-right">
+        <a th:href="@{/user/}" href="list.html"> Users </a>
+    </div>
+    <dl>
+        <dt>First name</dt>
+        <dd id="firstName" th:text="${user.firstName}">Email</dd>
+        <dt>Last Name</dt>
+        <dd id="lastName" th:text="${user.lastName}">Email</dd>
+        <dt>Phone number</dt>
+        <dd id="phoneNumber" th:text="${user.phoneNumber}">Email</dd>
+    </dl>
+
+</div>
+</body>
+</html>
